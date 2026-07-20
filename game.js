@@ -1,6 +1,8 @@
 // Wer bin ich? – IT-Azubis Edition
 // Dieses Skript wird von beiden Gruppen bearbeitet.
 
+import { initTheme } from "./lightDarkToggle.js";
+initTheme("#btn-theme");
 // DOM-Elemente
 const hintText = document.getElementById("hint-text");
 const answerText = document.getElementById("answer-text");

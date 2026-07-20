@@ -1,13 +1,25 @@
 /* Grundlayout */
 
 :root {
+  /* Colors */
   --background: hsl(210, 75%, 5%);          /* deep navy-black */
   --background-secondary: hsl(190, 90%, 10%); /* dark teal surface */
   --text: hsl(0, 0%, 100%);                /* soft white */
   --main-color: hsl(175, 80%, 35%);          /* vibrant teal */
   --main-darker: hsl(175, 80%, 25%);
-  --accent-color: #f97316;        /* warm orange */
+  --accent-color: hsl(25, 95%, 53%);        /* warm orange */
+
 }
+
+:root[data-theme = "light"]{
+  --background: hsl(190, 30%, 96%);          /* soft blue-white */
+  --background-secondary: hsl(190, 35%, 88%); /* light teal surface */
+  --text: hsl(210, 40%, 12%);                /* dark navy text */
+  --main-color: hsl(175, 70%, 35%);          /* vibrant teal */
+  --main-darker: hsl(175, 70%, 25%);         /* darker teal hover */
+  --accent-color: hsl(25, 95%, 50%);         /* warm orange */
+}
+
 
 body {
   font-family: Arial, sans-serif;
@@ -15,12 +27,27 @@ body {
   background-color: var(--background);
   margin: 0;
   padding: 0;
+  min-height: 100dvh; /*Der Body ist mindestens so groß wie das Broswerfenster -> erleichtert Layout*/
+  display: flex;
+  flex-direction: column;
 }
 
 header,
 footer {
   background-color: var(--background-secondary);
   padding: 12px 16px;
+  position: sticky; /*Ähnlich wie Position absolute, kann aber von einem anderen Objekt "abgelöst" werden. Für unseren Fall aber eigentlich egal*/
+}
+footer{
+    bottom: 0;
+}
+header{
+  top: 0;
+  display: flex;
+}
+#btn-theme{
+  right: 0;
+  margin-left: auto;
 }
 
 header h1,
@@ -30,6 +57,10 @@ footer p {
 
 main {
   padding: 20px;
+  flex: 1; /*Grows to fit container size*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Spielbereich */
@@ -73,10 +104,20 @@ button {
   border-radius: 4px;
   background-color: var(--main-color);
   color: rgb(255, 255, 255);
-  transition: background-color .2s ease, transform .2s ease;
+  transition: background-color .1s ease-out, transform .1s ease-out;
 }
 
 button:hover {
   background-color: var(--main-darker);
   transform: scale(105%);
+}
+button:active{
+  transform: scale(95%);
+}
+
+a{
+  color: var(--accent-color);
+}
+a:hover{
+  color: hsl(from var(--accent-color) h 100 calc(l*.9));
 }
