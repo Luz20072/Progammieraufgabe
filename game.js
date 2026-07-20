@@ -7,7 +7,7 @@ const answerText = document.getElementById("answer-text");
 const nextHintBtn = document.getElementById("next-hint-btn");
 const revealBtn = document.getElementById("reveal-btn");
 const scoreText = document.getElementById("score-text");
-
+let persons = []
 // Datenstruktur für Personen
 // Gruppe A definiert die Struktur (Felder), Gruppe B füllt die Inhalte.
 // Beispielstruktur (INHALTE KOMMEN VON GRUPPE B):
@@ -26,7 +26,12 @@ const scoreText = document.getElementById("score-text");
 //   }
 // ];
 
-const persons = []; // wird von Gruppe B mit echten Personen/Hinweisen gefüllt
+
+async function loadPersons() {
+    const response = await fetch("data/persons.json");
+    const personJson = await response.json();
+    return personJson
+}
 
 // Zustandsvariablen
 let currentPersonIndex = 0;
@@ -36,7 +41,12 @@ let currentHintIndex = 0;
 let score = 0;
 
 // Startet eine neue Runde
-function startGame() {
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+}
+
+async function startGame() {
+  persons = await loadPersons();
   if (persons.length === 0) {
     hintText.textContent = "Es wurden noch keine Personen eingetragen. Gruppe B muss Inhalte hinzufügen.";
     answerText.textContent = "";
@@ -45,7 +55,7 @@ function startGame() {
   }
 
   // zufällige Person auswählen
-  currentPersonIndex = Math.floor(Math.random() * persons.length);
+  currentPersonIndex = getRandomIndex(persons);
   currentHintIndex = 0;
 
   const person = persons[currentPersonIndex];
@@ -55,6 +65,7 @@ function startGame() {
   // Punktestand zurücksetzen oder initialisieren (kann angepasst werden)
   scoreText.textContent = "";
 }
+
 
 // Nächster Hinweis
 nextHintBtn.addEventListener("click", () => {
@@ -92,4 +103,5 @@ revealBtn.addEventListener("click", () => {
 });
 
 // Beim Laden der Seite Spiel starten
+
 startGame();
