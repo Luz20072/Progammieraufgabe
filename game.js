@@ -63,8 +63,8 @@ function newQuestion() {
   const person = dataset[currentPersonIndex];
   hintText.textContent = person.hints[currentHintIndex];
   answerText.textContent = "";
-  solutionDiv.style.display="none"
-  solutionImg.src = person.image || "icon_placeholder.svg";
+  solutionImg.src = "https://png.pngtree.com/png-vector/20260708/ourlarge/pngtree-silhouette-of-a-person-with-a-question-mark-face-png-image_19728322.webp"
+  // solutionDiv.style.display="none"
 }
 async function startGame() {
   persons = await loadJson("data/persons.json");
@@ -74,7 +74,7 @@ async function startGame() {
   dataset = datasets[savedDatSet];
   // zufällige Person auswählen
   newQuestion();
-
+  
   // Punktestand zurücksetzen oder initialisieren (kann angepasst werden)
   scoreText.textContent = "";
 }
@@ -85,16 +85,16 @@ nextHintBtn.addEventListener("click", () => {
   if (dataset.length === 0) {
     return;
   }
-
+  
   const person = dataset[currentPersonIndex];
-
+  
   if (currentHintIndex < person.hints.length - 1) {
     currentHintIndex++;
     hintText.textContent = person.hints[currentHintIndex];
   } else {
     hintText.textContent = "Keine weiteren Hinweise. Vielleicht die Auflösung anzeigen?";
   }
-
+  
   // Hier könnte Gruppe B ein Punktesystem einbauen:
   // z.B. score reduzieren, je mehr Hinweise genutzt werden.
 });
@@ -105,7 +105,8 @@ revealBtn.addEventListener("click", () => {
     return;
   }
   const person = dataset[currentPersonIndex];
-  solutionDiv.style.display = "flex"
+  solutionImg.src=""; //so
+  solutionImg.src = person.image || "icon_placeholder.svg";
   answerText.textContent = person.name;
 
   // Hier kann Gruppe B Zusatzinfos anzeigen, z.B. Rolle/Jahrgang:
