@@ -55,6 +55,9 @@ header h1,
 footer p {
   margin: 0;
 }
+h2{
+  font-size: 2em;
+}
 
 main {
   padding: 20px;
@@ -79,9 +82,11 @@ main {
   background-color: var(--background-secondary);
 }
 
-#hint-text {
+#hint-list {
+  margin: 0;
   font-size: 1.1em;
-  margin-bottom: 12px;
+  min-height: 5em;
+  list-style-type: decimal;
 }
 
 #answer-text {

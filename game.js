@@ -4,7 +4,7 @@
 import { initTheme } from "./lightDarkToggle.js";
 initTheme("#btn-theme");
 // DOM-Elemente
-const hintText = document.getElementById("hint-text");
+const hintList = document.getElementById("hint-list");
 const answerText = document.getElementById("answer-text");
 const nextHintBtn = document.getElementById("next-hint-btn");
 const revealBtn = document.getElementById("reveal-btn");
@@ -61,7 +61,10 @@ function newQuestion() {
   currentPersonIndex = getRandomIndex(dataset);
   currentHintIndex = 0;
   const person = dataset[currentPersonIndex];
-  hintText.textContent = person.hints[currentHintIndex];
+  hintList.innerHTML = "";
+  const newItem = document.createElement("li");
+  newItem.textContent = person.hints[currentHintIndex];
+  hintList.appendChild(newItem);
   answerText.textContent = "";
   solutionImg.src = "https://png.pngtree.com/png-vector/20260708/ourlarge/pngtree-silhouette-of-a-person-with-a-question-mark-face-png-image_19728322.webp"
   // solutionDiv.style.display="none"
@@ -74,7 +77,7 @@ async function startGame() {
   dataset = datasets[savedDatSet];
   // zufällige Person auswählen
   newQuestion();
-  
+
   // Punktestand zurücksetzen oder initialisieren (kann angepasst werden)
   scoreText.textContent = "";
 }
@@ -85,16 +88,22 @@ nextHintBtn.addEventListener("click", () => {
   if (dataset.length === 0) {
     return;
   }
-  
+
   const person = dataset[currentPersonIndex];
-  
+
   if (currentHintIndex < person.hints.length - 1) {
     currentHintIndex++;
-    hintText.textContent = person.hints[currentHintIndex];
-  } else {
-    hintText.textContent = "Keine weiteren Hinweise. Vielleicht die Auflösung anzeigen?";
+    const newItem = document.createElement("li");
+    newItem.textContent = person.hints[currentHintIndex];
+    hintList.appendChild(newItem);
+  } else  if(currentHintIndex == person.hints.length - 1){
+    currentHintIndex++;
+    const newItem = document.createElement("li");
+    newItem.textContent="Keine weiteren Hinweise"
+    newItem.style.color = "var(--accent-color)"
+    hintList.appendChild(newItem);
   }
-  
+
   // Hier könnte Gruppe B ein Punktesystem einbauen:
   // z.B. score reduzieren, je mehr Hinweise genutzt werden.
 });
@@ -105,7 +114,7 @@ revealBtn.addEventListener("click", () => {
     return;
   }
   const person = dataset[currentPersonIndex];
-  solutionImg.src=""; //so
+  solutionImg.src = ""; //so
   solutionImg.src = person.image || "icon_placeholder.svg";
   answerText.textContent = person.name;
 
