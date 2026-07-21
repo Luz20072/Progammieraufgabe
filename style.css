@@ -1,7 +1,7 @@
 /* Grundlayout */
 
 :root {
-  /* Colors */
+    /* Colors */
   --background: hsl(210, 75%, 5%);          /* deep navy-black */
   --background-secondary: hsl(190, 90%, 10%); /* dark teal surface */
   --text: hsl(0, 0%, 100%);                /* soft white */
