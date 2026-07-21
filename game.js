@@ -9,8 +9,10 @@ const answerText = document.getElementById("answer-text");
 const nextHintBtn = document.getElementById("next-hint-btn");
 const revealBtn = document.getElementById("reveal-btn");
 const scoreText = document.getElementById("score-text");
-const selectData = document.getElementById("dataset")
-const nextQuestionButton = document.getElementById("next-question-btn")
+const selectData = document.getElementById("dataset");
+const nextQuestionButton = document.getElementById("next-question-btn");
+const solutionDiv = document.getElementById("solution");
+const solutionImg = document.getElementById("solutionImage");
 let persons = [];
 let ficChars = [];
 let datasets = {};
@@ -61,11 +63,13 @@ function newQuestion() {
   const person = dataset[currentPersonIndex];
   hintText.textContent = person.hints[currentHintIndex];
   answerText.textContent = "";
+  solutionDiv.style.display="none"
+  solutionImg.src = person.image || "icon_placeholder.svg";
 }
 async function startGame() {
   persons = await loadJson("data/persons.json");
   ficChars = await loadJson("data/fictional_characters.json");
-  const datasets = { persons, ficChars };
+  datasets = { persons, ficChars };
   const savedDatSet = localStorage.getItem("selectedDataset") || persons;
   dataset = datasets[savedDatSet];
   // zufällige Person auswählen
@@ -100,9 +104,9 @@ revealBtn.addEventListener("click", () => {
   if (dataset.length === 0) {
     return;
   }
-
   const person = dataset[currentPersonIndex];
-  answerText.textContent = "Wer bin ich? -> " + person.name;
+  solutionDiv.style.display = "flex"
+  answerText.textContent = person.name;
 
   // Hier kann Gruppe B Zusatzinfos anzeigen, z.B. Rolle/Jahrgang:
   // if (person.role) { answerText.textContent += " (" + person.role + ")"; }
@@ -116,6 +120,7 @@ selectData.addEventListener("change", (event) => {
   const val = event.target.value;
   dataset = datasets[val];
   localStorage.setItem("selectedDataset", val);
+  newQuestion();
 })
 // #endregion
 // Beim Laden der Seite Spiel starten

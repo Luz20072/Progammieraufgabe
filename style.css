@@ -67,7 +67,11 @@ main {
 /* Spielbereich */
 
 #game-area {
-  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  min-width: 500px;
   margin: 0 auto;
   border: 2px solid var(--main-color);
   border-radius: 8px;
@@ -114,6 +118,17 @@ button:hover {
 }
 button:active{
   transform: scale(95%);
+}
+
+#solution{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+#solutionImage{
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  height: 40dvh;
 }
 
 a{
