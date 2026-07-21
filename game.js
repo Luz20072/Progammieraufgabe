@@ -9,7 +9,13 @@ const answerText = document.getElementById("answer-text");
 const nextHintBtn = document.getElementById("next-hint-btn");
 const revealBtn = document.getElementById("reveal-btn");
 const scoreText = document.getElementById("score-text");
-let persons = []
+const selectData = document.getElementById("dataset")
+const nextQuestionButton = document.getElementById("next-question-btn")
+let persons = [];
+let ficChars = [];
+let datasets = {};
+let dataset;
+
 // Datenstruktur für Personen
 // Gruppe A definiert die Struktur (Felder), Gruppe B füllt die Inhalte.
 // Beispielstruktur (INHALTE KOMMEN VON GRUPPE B):
@@ -29,10 +35,10 @@ let persons = []
 // ];
 
 
-async function loadPersons() {
-    const response = await fetch("data/persons.json");
-    const personJson = await response.json();
-    return personJson
+async function loadJson(str) {
+  const response = await fetch(str);
+  const personJson = await response.json();
+  return personJson
 }
 
 // Zustandsvariablen
@@ -47,35 +53,36 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-async function startGame() {
-  persons = await loadPersons();
-  if (persons.length === 0) {
-    hintText.textContent = "Es wurden noch keine Personen eingetragen. Gruppe B muss Inhalte hinzufügen.";
-    answerText.textContent = "";
-    scoreText.textContent = "";
-    return;
-  }
+const currentDataset = () => datasets[dataset];
 
-  // zufällige Person auswählen
-  currentPersonIndex = getRandomIndex(persons);
+function newQuestion() {
+  currentPersonIndex = getRandomIndex(dataset);
   currentHintIndex = 0;
-
-  const person = persons[currentPersonIndex];
+  const person = dataset[currentPersonIndex];
   hintText.textContent = person.hints[currentHintIndex];
   answerText.textContent = "";
+}
+async function startGame() {
+  persons = await loadJson("data/persons.json");
+  ficChars = await loadJson("data/fictional_characters.json");
+  const datasets = { persons, ficChars };
+  const savedDatSet = localStorage.getItem("selectedDataset") || persons;
+  dataset = datasets[savedDatSet];
+  // zufällige Person auswählen
+  newQuestion();
 
   // Punktestand zurücksetzen oder initialisieren (kann angepasst werden)
   scoreText.textContent = "";
 }
 
-
+// #region EventListeners
 // Nächster Hinweis
 nextHintBtn.addEventListener("click", () => {
-  if (persons.length === 0) {
+  if (dataset.length === 0) {
     return;
   }
 
-  const person = persons[currentPersonIndex];
+  const person = dataset[currentPersonIndex];
 
   if (currentHintIndex < person.hints.length - 1) {
     currentHintIndex++;
@@ -90,11 +97,11 @@ nextHintBtn.addEventListener("click", () => {
 
 // Auflösung anzeigen
 revealBtn.addEventListener("click", () => {
-  if (persons.length === 0) {
+  if (dataset.length === 0) {
     return;
   }
 
-  const person = persons[currentPersonIndex];
+  const person = dataset[currentPersonIndex];
   answerText.textContent = "Wer bin ich? -> " + person.name;
 
   // Hier kann Gruppe B Zusatzinfos anzeigen, z.B. Rolle/Jahrgang:
@@ -103,7 +110,14 @@ revealBtn.addEventListener("click", () => {
   // Und hier könnte das Punktesystem ausgewertet und angezeigt werden:
   // scoreText.textContent = "Dein Score: " + score;
 });
+nextQuestionButton.addEventListener("click", () => newQuestion())
 
+selectData.addEventListener("change", (event) => {
+  const val = event.target.value;
+  dataset = datasets[val];
+  localStorage.setItem("selectedDataset", val);
+})
+// #endregion
 // Beim Laden der Seite Spiel starten
 
 startGame();

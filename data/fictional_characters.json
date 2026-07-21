@@ -1,0 +1,182 @@
+[
+    {
+        "name": "Bowser",
+        "hints": [
+            "Ich hab einen Sohn.",
+            "Manchmal fahr ich Auto in meinem Schloss",
+            "Mein Erzfeind ist ein italienischer Klempner."
+        ],
+        "image": "https://static.wikia.nocookie.net/mario/images/3/3f/SMBW_Bowser_Artwork.png/revision/latest?cb=20230910142646"
+    },
+    {
+        "name": "Mario",
+        "hints": [
+            "Ich rette oft eine Prinzessin.",
+            "Ich trage einen roten Hut.",
+            "Mein Bruder heißt Luigi."
+        ],
+        "image": "https://static.wikia.nocookie.net/mario/images/b/be/SM3DW_Artwork_Mario.png/revision/latest?cb=20211023140148&path-prefix=de"
+    },
+    {
+        "name": "Link",
+        "hints": [
+            "Ich benutze ein magisches Schwert.",
+            "Ich bin ein Held aus Hyrule.",
+            "Meine Freundin ist Zelda."
+        ],
+        "image": "https://static.wikia.nocookie.net/zelda/images/2/25/BoTW-Link.png/revision/latest/scale-to-width-down/1200?cb=20211227021011&path-prefix=de"
+    },
+    {
+        "name": "Pikachu",
+        "hints": [
+            "Mein Name ist auch mein Ruf.",
+            "Ich bin gelb.",
+            "Mein Trainer heißt Ash."
+        ],
+        "image": "https://www.pokewiki.de/images/thumb/9/9e/Hauptartwork_025.png/250px-Hauptartwork_025.png"
+    },
+    {
+        "name": "Samus",
+        "hints": [
+            "Ich trage eine gepanzerte Umgebungssuit.",
+            "Mein Spieldebüt war auf dem NES.",
+            "Ich jage Kopfgeld und kämpfe gegen Metroids."
+        ],
+        "image": "https://ssb.wiki.gallery/images/thumb/6/68/Samus_Other_M_Artwork.png/250px-Samus_Other_M_Artwork.png"
+    },
+    {
+        "name": "Kirby",
+        "hints": [
+            "Ich bin rosa.",
+            "Ich komme von einem runden Planeten.",
+            "Ich kann Fähigkeiten kopieren."
+        ],
+        "image": "https://static.wikia.nocookie.net/mario/images/6/63/Kirby_aus_KSA.png/revision/latest?cb=20230122035030&path-prefix=de"
+    },
+    {
+        "name": "Fox McCloud",
+        "hints": [
+            "Ich bin ein fuchsartiger Raumpilot.",
+            "Mein Erzfeind ist Andross.",
+            "Ich leite das Team Star Fox."
+        ],
+        "image": "https://static.wikia.nocookie.net/starfox/images/6/6b/SFZ-Fox_McCloud.png/revision/latest?cb=20160617205026&path-prefix=de"
+    },
+    {
+        "name": "Donkey Kong",
+        "hints": [
+            "Mario hatte in meinem Spiel seinen ersten Auftritt.",
+            "Auf der Switch 2 gibt es einen 3D-Platformer von mir.",
+            "Ich bin ein großer Affe mit roter Krawatte."
+        ],
+        "image": "https://preview.redd.it/do-you-consider-donkey-kong-as-part-of-the-mario-franchise-v0-iwt7dba3qxfd1.jpeg?auto=webp&s=c153d960d72ead3ffcac60e985ef92eac8787f9d"
+    },
+    {
+        "name": "Princess Peach",
+        "hints": [
+            "Ich bin oft die gerettete Prinzessin.",
+            "Ich trage ein rosa Kleid.",
+            "Ich regiere das Pilzkönigreich."
+        ],
+        "image": "https://static.wikia.nocookie.net/mario/images/2/28/MP10_Artwork_Prinzessin_Peach.png/revision/latest?cb=20150216203348&path-prefix=de"
+    },
+    {
+        "name": "Zelda",
+        "hints": [
+            "Ich bin die Prinzessin von Hyrule.",
+            "Ich habe magische Kräfte und Wissen.",
+            "Mein Name ist auch der Titel einer Spielreihe."
+        ],
+        "image": "https://static.wikia.nocookie.net/zelda/images/5/57/BoTW-Zelda.png/revision/latest?cb=20170226143832&path-prefix=de"
+    },
+    {
+        "name": "Ganon",
+        "hints": [
+            "Ich bin der wiederkehrende Bösewicht in Hyrule.",
+            "Ich strebe nach Macht und dem Triforce.",
+            "Meine Gestalt ist oft ein mächtiges Monster."
+        ],
+        "image": "https://static.wikia.nocookie.net/zelda/images/1/12/Ganondorf.png/revision/latest?cb=20120407152813&path-prefix=de"
+    },
+    {
+        "name": "Yoshi",
+        "hints": [
+            "Ich bin ein freundlicher Dino und esse Frucht.",
+            "Ich kann Eier legen und sie werfen.",
+            "Ich begleite oft Mario auf Abenteuern."
+        ],
+        "image": "https://static.wikia.nocookie.net/mario/images/4/4d/MP10_Artwork_Yoshi.png/revision/latest/scale-to-width-down/1200?cb=20190805214545&path-prefix=de"
+    },
+    {
+        "name": "Luigi",
+        "hints": [
+            "Ich bin Marios Bruder.",
+            "Ich trage grün und habe Angst vor Geistern.",
+            "Ich bin oft etwas höher als mein Bruder."
+        ],
+        "image": "https://static.wikia.nocookie.net/sonicwiki/images/3/37/SSBU_Luigi_main.png/revision/latest?cb=20191118131159&path-prefix=de"
+    },
+    {
+        "name": "Sonic",
+        "hints": [
+            "Ich bin ein blauer Igel und sehr schnell.",
+            "Mein Erzfeind ist Dr. Eggman.",
+            "Ich sammle goldene Ringe."
+        ],
+        "image": "https://ssb.wiki.gallery/images/thumb/d/d0/Sonic.png/200px-Sonic.png"
+    },
+    {
+        "name": "Tails",
+        "hints": [
+            "Ich habe zwei Schwänze (pause).",
+            "Ich kann fliegen, indem ich meine Schwänze rotieren lasse (MAJOR PAUSE).",
+            "Ich bin Sonics bester Freund und Mechaniker."
+        ],
+        "image": "https://static.wikia.nocookie.net/miles-tails-prower/images/7/7c/Miles_Tails_Prower_Sonic_and_All-Stars_Racing_Transformed_1.png/revision/latest?cb=20231021004938"
+    },
+    {
+        "name": "Mega Man",
+        "hints": [
+            "Ich bin ein blaugerechter Roboterheld.",
+            "Ich übernehme Fähigkeiten besiegter Bosse.",
+            "Ich kämpfe gegen Dr. Wily."
+        ],
+        "image": "https://mario.wiki.gallery/images/thumb/8/8a/MegaMan_SSBU.png/1200px-MegaMan_SSBU.png"
+    },
+    {
+        "name": "Lara Croft",
+        "hints": [
+            "Ich bin eine Archäologin und Abenteurerin.",
+            "Ich trage oft Zöpfe und Pistolen.",
+            "Meine Abenteuer führen mich zu alten Ruinen."
+        ],
+        "image": "https://upload.wikimedia.org/wikipedia/en/a/a8/LaraCroftInfobox.png"
+    },
+    {
+        "name": "Nathan Drake",
+        "hints": [
+            "Ich bin ein Schatzjäger mit Charme.",
+            "Ich finde verlorene Zivilisationen.",
+            "Meine Serie ist bekannt für Kletter- und Schusssequenzen."
+        ],
+        "image": "https://static.wikia.nocookie.net/uncharted/images/e/e1/Nathan_Drake_from_ATE_headshot.png/revision/latest?cb=20221025141033"
+    },
+    {
+        "name": "Master Chief",
+        "hints": [
+            "Ich trage grüne Spartan-Rüstung.",
+            "Ich kämpfe gegen die Allianz der Außerirdischen.",
+            "Meine Bezeichnung ist John-117."
+        ],
+        "image": "https://static.wikia.nocookie.net/deathbattle/images/a/a6/Portrait.masterchief.png/revision/latest?cb=20241009001231"
+    },
+    {
+        "name": "Geralt",
+        "hints": [
+            "Ich bin ein Hexer und Monsterjäger.",
+            "Ich habe weiße Haare und gelbe Augen.",
+            "Ich trinke Tränke, die mich stärken."
+        ],
+        "image": "https://static.wikia.nocookie.net/witcher/images/a/a0/Tw3_Geralt_of_Rivia_newest_render.png/revision/latest?cb=20170606064646"
+    }
+]
