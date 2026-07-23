@@ -134,6 +134,13 @@ button:hover {
 button:active{
   transform: scale(95%);
 }
+button:disabled{
+  background-color: hsl(from var(--main-color) h calc(s*.2) calc(l*1.5));
+}
+button:disabled:hover{
+  cursor: not-allowed;
+  transform: none;
+}
 
 #solution{
   display: flex;

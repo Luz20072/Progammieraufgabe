@@ -2,6 +2,7 @@
 // Dieses Skript wird von beiden Gruppen bearbeitet.
 
 import { initTheme } from "./lightDarkToggle.js";
+import * as score from  "./score.js";
 initTheme("#btn-theme");
 // DOM-Elemente
 const hintList = document.getElementById("hint-list");
@@ -48,7 +49,7 @@ let currentPersonIndex = 0;
 let currentHintIndex = 0;
 
 // Optionales Punktesystem (kann von Gruppe B erweitert werden)
-let score = 0;
+
 
 // Startet eine neue Runde
 function getRandomIndex(array) {
@@ -67,7 +68,7 @@ function newQuestion() {
   hintList.appendChild(newItem);
   answerText.textContent = "";
   solutionImg.src = "https://png.pngtree.com/png-vector/20260708/ourlarge/pngtree-silhouette-of-a-person-with-a-question-mark-face-png-image_19728322.webp"
-  // solutionDiv.style.display="none"
+  nextQuestionButton.disabled = true;
 }
 async function startGame() {
   persons = await loadJson("data/persons.json");
@@ -77,6 +78,7 @@ async function startGame() {
   dataset = datasets[savedDatSet];
   // zufällige Person auswählen
   newQuestion();
+  score.initScore();
 
   // Punktestand zurücksetzen oder initialisieren (kann angepasst werden)
   scoreText.textContent = "";
@@ -117,6 +119,7 @@ revealBtn.addEventListener("click", () => {
   solutionImg.src = ""; //so
   solutionImg.src = person.image || "icon_placeholder.svg";
   answerText.textContent = person.name;
+  nextQuestionButton.disabled = false;
 
   // Hier kann Gruppe B Zusatzinfos anzeigen, z.B. Rolle/Jahrgang:
   // if (person.role) { answerText.textContent += " (" + person.role + ")"; }
