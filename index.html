@@ -1,46 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Wer bin ich? – IT-Azubis</title>
-    <link rel="stylesheet" href="style.css" />
-    <script type="module" src="game.js" defer></script>
-    <link rel="icon" href="icon_placeholder.svg" type="image/svg+xml"/>
-  </head>
-  <body>
-    <header>
-      <h1>Wer bin ich? – IT-Azubis Edition</h1>
-      <button id ="btn-theme">Theme toggle</button>
-      
-        <select name="Datensatz" id="dataset">
-          <option value="persons">Azubis</option>
-          <option value="ficChars">Fiktive Charaktere</option>
-        </select>
-        <p >Highscore: <span id="highscore"></span></p>
-    </header>
-    <main>
-      <section id="game-area">
-        <h2>Ratespiel</h2>
-        <!-- <p id="hint-text">Hier erscheinen später Hinweise.</p> -->
-        <ol id="hint-list">
-        </ol>
-        <div id="buttons">
-          <button id="next-hint-btn">Nächster Hinweis</button>
-          <button id="reveal-btn">Auflösung zeigen</button>
-        </div>
 
-        <div id="solution">
-          <img id="solutionImage" src="https://png.pngtree.com/png-vector/20260708/ourlarge/pngtree-silhouette-of-a-person-with-a-question-mark-face-png-image_19728322.webp" >
-          <p id="answer-text"></p>
-        </div>
+<head>
+  <meta charset="utf-8" />
+  <title>Wer bin ich? – IT-Azubis</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=check,sentiment_very_dissatisfied" />
+  <script type="module" src="game.js" defer></script>
+  <link rel="icon" href="icon_placeholder.svg" type="image/svg+xml" />
+</head>
 
-        <p id="score-text"></p>
-        <button id="next-question-btn">Next Question</button>
-      </section>
-    </main>
-    <footer>
-      <p>Azubi-Projekt – erstellt während der GitHub-Einführung</p>
-      <a href="about/">About</a>
-    </footer>
-  </body>
+<body>
+  <header>
+    <h1>Wer bin ich? – IT-Azubis Edition</h1>
+    <button id="btn-theme">Theme toggle</button>
+
+    <select name="Datensatz" id="dataset">
+      <option value="persons">Azubis</option>
+      <option value="ficChars">Fiktive Charaktere</option>
+    </select>
+    <p>Highscore: <span id="highscore"></span></p>
+  </header>
+  <main>
+    <section id="game-area">
+      <h2>Ratespiel</h2>
+      <!-- <p id="hint-text">Hier erscheinen später Hinweise.</p> -->
+      <ol id="hint-list">
+      </ol>
+      <div id="buttons">
+        <button id="next-hint-btn">Nächster Hinweis</button>
+        <button id="reveal-btn">Auflösung zeigen</button>
+      </div>
+
+      <div id="solution">
+        <img id="solutionImage"
+          src="https://png.pngtree.com/png-vector/20260708/ourlarge/pngtree-silhouette-of-a-person-with-a-question-mark-face-png-image_19728322.webp">
+        <p id="answer-text"></p>
+      </div>
+
+      <div class="scoreInfo">
+        <button id="falseGuess">
+          <span class="material-symbols-outlined">
+            sentiment_very_dissatisfied
+          </span></button>
+          <p>Score: <span id="score-text"></span></p>
+        <button id="correctGuess"><span class="material-symbols-outlined">
+            check
+          </span></button>
+      </div>
+      <button id="next-question-btn">Next Question</button>
+    </section>
+  </main>
+  <footer>
+    <p>Azubi-Projekt – erstellt während der GitHub-Einführung</p>
+    <a href="about/">About</a>
+  </footer>
+</body>
+
 </html>

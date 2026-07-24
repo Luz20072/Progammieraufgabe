@@ -14,6 +14,8 @@ const selectData = document.getElementById("dataset");
 const nextQuestionButton = document.getElementById("next-question-btn");
 const solutionDiv = document.getElementById("solution");
 const solutionImg = document.getElementById("solutionImage");
+const correctButton = document.getElementById("correctGuess");
+const falseButton = document.getElementById("falseGuess");
 let persons = [];
 let ficChars = [];
 let datasets = {};
@@ -69,19 +71,19 @@ function newQuestion() {
   answerText.textContent = "";
   solutionImg.src = "https://png.pngtree.com/png-vector/20260708/ourlarge/pngtree-silhouette-of-a-person-with-a-question-mark-face-png-image_19728322.webp"
   nextQuestionButton.disabled = true;
+  console.log(nextQuestionButton);
 }
 async function startGame() {
   persons = await loadJson("data/persons.json");
   ficChars = await loadJson("data/fictional_characters.json");
   datasets = { persons, ficChars };
-  const savedDatSet = localStorage.getItem("selectedDataset") || persons;
+  const savedDatSet = localStorage.getItem("selectedDataset") || "persons";
   dataset = datasets[savedDatSet];
   // zufällige Person auswählen
   newQuestion();
   score.initScore();
-
-  // Punktestand zurücksetzen oder initialisieren (kann angepasst werden)
-  scoreText.textContent = "";
+  falseButton.disabled = true;
+  correctButton.disabled = true;
 }
 
 // #region EventListeners
@@ -119,7 +121,8 @@ revealBtn.addEventListener("click", () => {
   solutionImg.src = ""; //so
   solutionImg.src = person.image || "icon_placeholder.svg";
   answerText.textContent = person.name;
-  nextQuestionButton.disabled = false;
+  falseButton.disabled = false;
+  correctButton.disabled = false;
 
   // Hier kann Gruppe B Zusatzinfos anzeigen, z.B. Rolle/Jahrgang:
   // if (person.role) { answerText.textContent += " (" + person.role + ")"; }
@@ -127,6 +130,18 @@ revealBtn.addEventListener("click", () => {
   // Und hier könnte das Punktesystem ausgewertet und angezeigt werden:
   // scoreText.textContent = "Dein Score: " + score;
 });
+falseButton.addEventListener("click", () =>{
+  score.resetScore();
+  falseButton.disabled = true;
+  correctButton.disabled = true;
+  nextQuestionButton.disabled = false;
+});
+correctButton.addEventListener("click", ()=>{
+  score.incrementScore();
+    falseButton.disabled = true;
+  correctButton.disabled = true;
+  nextQuestionButton.disabled = false;
+})
 nextQuestionButton.addEventListener("click", () => newQuestion())
 
 selectData.addEventListener("change", (event) => {

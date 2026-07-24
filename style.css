@@ -104,59 +104,66 @@ main {
     background-color: var(--background-secondary);
     text-shadow: none;
   }
-#score-text {
-  margin-top: 8px;
-  font-style: italic;
-}
-
-/* Buttons */
-
-#buttons {
-  margin-top: 8px;
-}
-
-button {
-  will-change: transform;
-  padding: 8px 16px;
-  margin-right: 8px;
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  background-color: var(--main-color);
-  color: rgb(255, 255, 255);
-  transition: background-color .1s ease-out, transform .1s ease-out;
-}
-
-button:hover {
-  background-color: var(--main-darker);
-  transform: scale(105%);
-}
-button:active{
-  transform: scale(95%);
-}
-button:disabled{
-  background-color: hsl(from var(--main-color) h calc(s*.2) calc(l*1.5));
-}
-button:disabled:hover{
-  cursor: not-allowed;
-  transform: none;
-}
-
-#solution{
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-}
-#solutionImage{
-  aspect-ratio: 1/1;
-  object-fit: contain;
-  height: 40dvh;
-}
-
-a{
-  color: var(--accent-color);
-}
-a:hover{
-  color: hsl(from var(--accent-color) h 100 calc(l*.9));
-}
+  
+  /* Buttons */
+  
+  #buttons {
+    margin-top: 8px;
+  }
+  
+  button {
+    will-change: transform;
+    padding: 8px 16px;
+    margin: 4px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--main-color);
+    color: rgb(255, 255, 255);
+    transition: background-color .1s ease-out, transform .1s ease-out;
+  }
+  
+  button:hover {
+    background-color: var(--main-darker);
+    transform: scale(105%);
+  }
+  button:active{
+    transform: scale(95%);
+  }
+  button:disabled{
+    background-color: hsl(from var(--main-color) h calc(s*.2) calc(l*1.5));
+  }
+  button:disabled:hover{
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  #solution{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+  }
+  #solutionImage{
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    height: 40dvh;
+  }
+  
+  a{
+    color: var(--accent-color);
+  }
+  a:hover{
+    color: hsl(from var(--accent-color) h 100 calc(l*.9));
+  }
+  
+  .scoreInfo{
+    min-width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #score-text {
+    font-style: italic;
+  }
