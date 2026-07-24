@@ -1,23 +1,23 @@
 /* Grundlayout */
 
 :root {
-    /* Colors */
-  --background: hsl(210, 75%, 5%);          /* deep navy-black */
-  --background-secondary: hsl(190, 90%, 10%); /* dark teal surface */
-  --text: hsl(0, 0%, 100%);                /* soft white */
-  --main-color: hsl(175, 80%, 35%);          /* vibrant teal */
+  /* Colors */
+  --background: hsl(210, 75%, 5%);
+  --background-secondary: hsl(190, 90%, 10%);
+  --text: hsl(0, 0%, 100%);
+  --main-color: hsl(175, 80%, 35%);
   --main-darker: hsl(175, 80%, 25%);
-  --accent-color: hsl(25, 95%, 53%);        /* warm orange */
+  --accent-color: hsl(25, 95%, 53%);
 
 }
 
-:root[data-theme = "light"]{
-  --background: hsl(190, 30%, 96%);          /* soft blue-white */
-  --background-secondary: hsl(190, 35%, 88%); /* light teal surface */
-  --text: hsl(210, 40%, 12%);                /* dark navy text */
-  --main-color: hsl(175, 70%, 35%);          /* vibrant teal */
-  --main-darker: hsl(175, 70%, 25%);         /* darker teal hover */
-  --accent-color: hsl(25, 95%, 50%);         /* warm orange */
+:root[data-theme="light"] {
+  --background: hsl(190, 30%, 96%);
+  --background-secondary: hsl(190, 35%, 88%);
+  --text: hsl(210, 40%, 12%);
+  --main-color: hsl(175, 70%, 35%);
+  --main-darker: hsl(175, 70%, 25%);
+  --accent-color: hsl(25, 95%, 50%);
 }
 
 
@@ -27,7 +27,8 @@ body {
   background-color: var(--background);
   margin: 0;
   padding: 0;
-  min-height: 100dvh; /*Der Body ist mindestens so groß wie das Broswerfenster -> erleichtert Layout*/
+  /*min-height: Der Body ist mindestens so groß wie das Broswerfenster -> erleichtert Layout*/
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
@@ -36,17 +37,21 @@ header,
 footer {
   background-color: var(--background-secondary);
   padding: 12px 16px;
-  position: sticky; /*Ähnlich wie Position absolute, kann aber von einem anderen Objekt "abgelöst" werden. Für unseren Fall aber eigentlich egal*/
+  position: sticky;
+  /*Ähnlich wie Position absolute, kann aber von einem anderen Objekt "abgelöst" werden. Für unseren Fall aber eigentlich egal*/
 }
-footer{
-    bottom: 0;
+
+footer {
+  bottom: 0;
 }
-header{
+
+header {
   top: 0;
   display: flex;
   align-items: center;
 }
-#btn-theme{
+
+#btn-theme {
   right: 0;
   margin-left: auto;
 }
@@ -55,13 +60,15 @@ header h1,
 footer p {
   margin: 0;
 }
-h2{
+
+h2 {
   font-size: 2em;
 }
 
 main {
   padding: 20px;
-  flex: 1; /*Grows to fit container size*/
+  flex: 1;
+  /*Grows to fit container size*/
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,70 +107,105 @@ main {
 
 }
 
-  [data-theme = "light"] #answer-text{
-    background-color: var(--background-secondary);
-    text-shadow: none;
+[data-theme="light"] #answer-text {
+  background-color: var(--background-secondary);
+  text-shadow: none;
+}
+
+/* Buttons */
+
+#buttons {
+  margin-top: 8px;
+}
+
+button {
+  will-change: transform;
+  padding: 8px 16px;
+  margin: 4px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--main-color);
+  color: rgb(255, 255, 255);
+  transition: background-color .1s ease-out, transform .1s ease-out;
+}
+
+button:hover {
+  background-color: var(--main-darker);
+  transform: scale(105%);
+}
+
+button:active {
+  transform: scale(95%);
+}
+
+button:disabled {
+  background-color: hsl(from var(--main-color) h calc(s*.2) calc(l*1.5));
+}
+
+button:disabled:hover {
+  cursor: not-allowed;
+  transform: none;
+}
+
+#solution {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+#solutionImage {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  height: 40dvh;
+}
+
+a {
+  color: var(--accent-color);
+}
+
+a:hover {
+  color: hsl(from var(--accent-color) h 100 calc(l*.9));
+}
+
+.scoreInfo {
+  min-width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#score-text {
+  font-style: italic;
+}
+
+.icon-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  padding: 8px;
+  background-color: hsl(from var(--main-color) h calc(s*.2) calc(l*1.5))
+}
+
+#falseGuess:not(:disabled) {
+  background-color: red;
+}
+#correctGuess:not(:disabled){
+  background-color: rgb(0, 200, 0);
+}
+#next-question-btn:not(:disabled){
+  animation: zoom 1s ease-in-out infinite;
+}
+
+
+@keyframes zoom {
+  0%, 100% {
+    transform: scale(1);
   }
-  
-  /* Buttons */
-  
-  #buttons {
-    margin-top: 8px;
+  50% {
+    transform: scale(1.1);
   }
-  
-  button {
-    will-change: transform;
-    padding: 8px 16px;
-    margin: 4px;
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    background-color: var(--main-color);
-    color: rgb(255, 255, 255);
-    transition: background-color .1s ease-out, transform .1s ease-out;
-  }
-  
-  button:hover {
-    background-color: var(--main-darker);
-    transform: scale(105%);
-  }
-  button:active{
-    transform: scale(95%);
-  }
-  button:disabled{
-    background-color: hsl(from var(--main-color) h calc(s*.2) calc(l*1.5));
-  }
-  button:disabled:hover{
-    cursor: not-allowed;
-    transform: none;
-  }
-  
-  #solution{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-  }
-  #solutionImage{
-    aspect-ratio: 1/1;
-    object-fit: contain;
-    height: 40dvh;
-  }
-  
-  a{
-    color: var(--accent-color);
-  }
-  a:hover{
-    color: hsl(from var(--accent-color) h 100 calc(l*.9));
-  }
-  
-  .scoreInfo{
-    min-width: 50%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  #score-text {
-    font-style: italic;
-  }
+}

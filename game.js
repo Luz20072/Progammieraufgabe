@@ -2,7 +2,7 @@
 // Dieses Skript wird von beiden Gruppen bearbeitet.
 
 import { initTheme } from "./lightDarkToggle.js";
-import * as score from  "./score.js";
+import * as score from "./score.js";
 initTheme("#btn-theme");
 // DOM-Elemente
 const hintList = document.getElementById("hint-list");
@@ -72,6 +72,8 @@ function newQuestion() {
   solutionImg.src = "https://png.pngtree.com/png-vector/20260708/ourlarge/pngtree-silhouette-of-a-person-with-a-question-mark-face-png-image_19728322.webp"
   nextQuestionButton.disabled = true;
   console.log(nextQuestionButton);
+  revealBtn.disabled = false;
+  nextHintBtn.disabled = false;
 }
 async function startGame() {
   persons = await loadJson("data/persons.json");
@@ -100,10 +102,10 @@ nextHintBtn.addEventListener("click", () => {
     const newItem = document.createElement("li");
     newItem.textContent = person.hints[currentHintIndex];
     hintList.appendChild(newItem);
-  } else  if(currentHintIndex == person.hints.length - 1){
+  } else if (currentHintIndex == person.hints.length - 1) {
     currentHintIndex++;
     const newItem = document.createElement("li");
-    newItem.textContent="Keine weiteren Hinweise"
+    newItem.textContent = "Keine weiteren Hinweise"
     newItem.style.color = "var(--accent-color)"
     hintList.appendChild(newItem);
   }
@@ -118,32 +120,41 @@ revealBtn.addEventListener("click", () => {
     return;
   }
   const person = dataset[currentPersonIndex];
+  let tempIndex = currentHintIndex;
+  while (tempIndex < person.hints.length - 1) {
+    tempIndex++;
+    const newItem = document.createElement("li");
+    newItem.textContent = person.hints[tempIndex];
+    newItem.style.opacity = .75;
+    hintList.appendChild(newItem);
+  }
   solutionImg.src = ""; //so
   solutionImg.src = person.image || "icon_placeholder.svg";
   answerText.textContent = person.name;
   falseButton.disabled = false;
   correctButton.disabled = false;
-
-  // Hier kann Gruppe B Zusatzinfos anzeigen, z.B. Rolle/Jahrgang:
-  // if (person.role) { answerText.textContent += " (" + person.role + ")"; }
-
-  // Und hier könnte das Punktesystem ausgewertet und angezeigt werden:
-  // scoreText.textContent = "Dein Score: " + score;
+  revealBtn.disabled = true;
+  nextHintBtn.disabled = true;
 });
-falseButton.addEventListener("click", () =>{
+// Falsche Antwort
+falseButton.addEventListener("click", () => {
   score.resetScore();
   falseButton.disabled = true;
   correctButton.disabled = true;
   nextQuestionButton.disabled = false;
 });
-correctButton.addEventListener("click", ()=>{
-  score.incrementScore();
-    falseButton.disabled = true;
+// Richtige Antwort
+correctButton.addEventListener("click", () => {
+  const person = dataset[currentPersonIndex];
+  const points = Math.max(0, person.hints.length - currentHintIndex - 1) + 1;
+  score.incrementScore(points);
+  falseButton.disabled = true;
   correctButton.disabled = true;
   nextQuestionButton.disabled = false;
 })
 nextQuestionButton.addEventListener("click", () => newQuestion())
 
+// Auswählen des Datensatzes (Azubis, Fiktive Charaktere)
 selectData.addEventListener("change", (event) => {
   const val = event.target.value;
   dataset = datasets[val];
@@ -151,6 +162,6 @@ selectData.addEventListener("change", (event) => {
   newQuestion();
 })
 // #endregion
-// Beim Laden der Seite Spiel starten
 
+// Beim Laden der Seite Spiel starten
 startGame();

@@ -5,7 +5,6 @@ let highscore = localStorage.getItem("highscore") || 0;
 const highscoreText = document.getElementById("highscore");
 const scoreText = document.getElementById("score-text");
 export function initScore(){
-    console.log(score);
     console.log(highscore);
     scoreText.innerText = score;
     highscoreText.innerText = highscore;
