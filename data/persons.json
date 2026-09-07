@@ -1,162 +1,75 @@
 [
   {
-    "name": "Azubi 1",
+    "name": "Kevin",
     "hints": [
-      "Ich bin im 2. Ausbildungsjahr.",
-      "Ich mag Frontend.",
-      "Ich trinke morgens immer Mate."
+      "Ich mag Billiard",
+      "Ich habe 2024 aufgehört zu rauchen",
+      "Ich habe im Mai Geburtstag"
     ]
   },
-  {
-    "name": "Azubi 2",
+    {
+    "name": "Almin",
     "hints": [
-      "Ich bin frisch im 1. Lehrjahr.",
-      "Ich finde Git spannend.",
-      "Ich fahre jeden Tag mit dem Fahrrad zur Arbeit."
+      "Bleach Musik ist goated",
+      "Ich habe 12 Jahre Fußball gespielt",
+      "Wenn ich Probleme habe rufe ich die 16q6 an"
     ]
   },
-  {
-    "name": "Azubi 3",
+    {
+    "name": "Luka",
     "hints": [
-      "Ich interessiere mich für Backend.",
-      "Ich lerne gern Python.",
-      "Ich spiele in meiner Freizeit Basketball."
+      "Ich liebe Story Games",
+      "Ich mag hertha BSC",
+      "Ich bin Formel 1 Fan"
     ]
   },
-  {
-    "name": "Azubi 4",
+    {
+    "name": "Max",
     "hints": [
-      "Ich bin der Jüngste im Team.",
-      "Ich programmiere am liebsten mobil.",
-      "Ich fahre gerne Skateboard."
+      "Ich bin nicht in Berlin gebohren",
+      "Ich mag Geschichte",
+      "Mein Lieblings-Fandom ist Herr der Ringe"
     ]
   },
-  {
-    "name": "Azubi 5",
+    {
+    "name": "Alex",
     "hints": [
-      "Ich mag Datenbanken.",
-      "Ich lese gern Fachbücher.",
-      "Ich koche gerne am Wochenende."
+      "Ich bin Kha'Zix Main",
+      "Ich bin benutze Blender",
+      "Ich  trinke gerne Red Bull"
     ]
   },
-  {
-    "name": "Azubi 6",
+    {
+    "name": "Aaron",
     "hints": [
-      "Ich habe schon ein Praktikum im IT-Bereich gemacht.",
-      "Ich bin neugierig auf Cloud-Technologien.",
-      "Ich laufe morgens oft im Park."
+      "Ich bin 24 jahre alt",
+      "Ich habe früher Bogenschießen gemacht",
+      "Ich habe schwarze Schuhe an"
     ]
   },
-  {
-    "name": "Azubi 7",
+      {
+    "name": "Jendrik",
     "hints": [
-      "Ich arbeite gern im Team.",
-      "Ich mag CSS-Animationen.",
-      "Ich spiele Gitarre."
+      "Ich bin großer Battlerap Fan",
+      "Ich hab 3000+ Stunden in League of Legends",
+      "Ich wollte ursprünglich Lehrer werden"
     ]
   },
-  {
-    "name": "Azubi 8",
+        {
+    "name": "Tina",
     "hints": [
-      "Ich schreibe am liebsten Unit-Tests.",
-      "Ich bin im 3. Ausbildungsjahr.",
-      "Ich sammle Brettspiele."
+      "Ich hatte mal ein eigenes Pferd",
+      "Ich habe als Kind in den USA gelebt",
+      "Ich bin zur Hälfte deutsch und zur Hälfte polnisch"
     ]
   },
-  {
-    "name": "Azubi 9",
+        {
+    "name": "Lukas",
     "hints": [
-      "Ich interessiere mich für Künstliche Intelligenz.",
-      "Ich mag Java.",
-      "Ich fahre gern Fahrrad zur Arbeit."
-    ]
-  },
-  {
-    "name": "Azubi 10",
-    "hints": [
-      "Ich bin begeisterter Linux-Nutzer.",
-      "Ich schreibe gern Skripte.",
-      "Ich backe am Wochenende."
-    ]
-  },
-  {
-    "name": "Azubi 11",
-    "hints": [
-      "Ich möchte später Softwarearchitekt werden.",
-      "Ich arbeite gern mit APIs.",
-      "Ich spiele Volleyball."
-    ]
-  },
-  {
-    "name": "Azubi 12",
-    "hints": [
-      "Ich interessiere mich für Cybersecurity.",
-      "Ich benutze gern Visual Studio Code.",
-      "Ich gehe oft wandern."
-    ]
-  },
-  {
-    "name": "Azubi 13",
-    "hints": [
-      "Ich lerne gerade TypeScript.",
-      "Ich mag kreative Projekte.",
-      "Ich fotografiere gern."
-    ]
-  },
-  {
-    "name": "Azubi 14",
-    "hints": [
-      "Ich finde DevOps spannend.",
-      "Ich verwende Docker.",
-      "Ich schwimme regelmäßig."
-    ]
-  },
-  {
-    "name": "Azubi 15",
-    "hints": [
-      "Ich bin interessiert an UX Design.",
-      "Ich arbeite gern mit Layouts.",
-      "Ich spiele Schach."
-    ]
-  },
-  {
-    "name": "Azubi 16",
-    "hints": [
-      "Ich lerne gerade C#.",
-      "Ich baue gern kleine Spiele.",
-      "Ich fotografiere städtische Architektur."
-    ]
-  },
-  {
-    "name": "Azubi 17",
-    "hints": [
-      "Ich interessiere mich für Machine Learning.",
-      "Ich nutze gern Linux-Server.",
-      "Ich lese Science-Fiction-Romane."
-    ]
-  },
-  {
-    "name": "Azubi 18",
-    "hints": [
-      "Ich bin oft in Code-Reviews aktiv.",
-      "Ich mag strukturierte Problemlösung.",
-      "Ich spiele gern Tischtennis."
-    ]
-  },
-  {
-    "name": "Azubi 19",
-    "hints": [
-      "Ich arbeite gern mit Datenvisualisierung.",
-      "Ich benutze gern React.",
-      "Ich genieße Architekturfilme."
-    ]
-  },
-  {
-    "name": "Azubi 20",
-    "hints": [
-      "Ich habe Interesse an IT-Projektmanagement.",
-      "Ich erstelle gern Prototypen.",
-      "Ich gehe gern Radfahren."
+      "Ich bin bei der Feuerwehr",
+      "Ich habe schon in jedem deutschen Nachbarland Urlaub gemacht",
+      "Ich bin Lehrjahr 2025"
     ]
   }
+  
 ]
