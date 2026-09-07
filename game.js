@@ -7,79 +7,27 @@ const answerText = document.getElementById("answer-text");
 const nextHintBtn = document.getElementById("next-hint-btn");
 const revealBtn = document.getElementById("reveal-btn");
 const scoreText = document.getElementById("score-text");
+const revealPhoto = document.getElementById("reveal-photo");
+const nextQuestionButton = document.getElementById("next-question-btn");
 
 // Datenstruktur für Personen
 // Gruppe A definiert die Struktur (Felder), Gruppe B füllt die Inhalte.
 // Beispielstruktur (INHALTE KOMMEN VON GRUPPE B):
 
-const persons = [
-  {
-    name: "Beispiel-Azubi",
-    hints: [
-      "Hinweis 1 ...",
-      "Hinweis 2 ...",
-      "Hinweis 3 ..."
-    ],
-    // optionale Felder für Zusatzfeatures:
-    // role: "Azubi",
-    // year: 2024
-  },
-    {
-    name: "Beispiel-Azubi",
-    hints: [
-      "Hinweis 1 ...",
-      "Hinweis 2 ...",
-      "Hinweis 3 ..."
-    ],
-    // optionale Felder für Zusatzfeatures:
-    // role: "Azubi",
-    // year: 2024
-  },
-    {
-    name: "Beispiel-Azubi",
-    hints: [
-      "Hinweis 1 ...",
-      "Hinweis 2 ...",
-      "Hinweis 3 ..."
-    ],
-    // optionale Felder für Zusatzfeatures:
-    // role: "Azubi",
-    // year: 2024
-  },
-    {
-    name: "Beispiel-Azubi",
-    hints: [
-      "Hinweis 1 ...",
-      "Hinweis 2 ...",
-      "Hinweis 3 ..."
-    ],
-    // optionale Felder für Zusatzfeatures:
-    // role: "Azubi",
-    // year: 2024
-  },
-    {
-    name: "Beispiel-Azubi",
-    hints: [
-      "Hinweis 1 ...",
-      "Hinweis 2 ...",
-      "Hinweis 3 ..."
-    ],
-    // optionale Felder für Zusatzfeatures:
-    // role: "Azubi",
-    // year: 2024
-  },
-    {
-    name: "Beispiel-Azubi",
-    hints: [
-      "Hinweis 1 ...",
-      "Hinweis 2 ...",
-      "Hinweis 3 ..."
-    ],
-    // optionale Felder für Zusatzfeatures:
-    // role: "Azubi",
-    // year: 2024
-  }
-];
+// const persons = [
+//   {
+//     name: "Beispiel-Azubi",
+//     hints: [
+//       "Hinweis 1 ...",
+//       "Hinweis 2 ...",
+//       "Hinweis 3 ..."
+//     ],
+//     // optionale Felder für Zusatzfeatures:
+//     // role: "Azubi",
+//     // year: 2024
+//   },
+ 
+// ];
 
 const persons = [
   {
@@ -184,7 +132,7 @@ revealBtn.addEventListener("click", () => {
   if (persons.length === 0) {
     return;
   }
-
+  revealPhoto.setAttribute("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6BdG1PUddzv8zNQNdF4toTR1NIu5HqNAjZtnmXahjQA&s=10")
   const person = persons[currentPersonIndex];
   answerText.textContent = "Wer bin ich? -> " + person.name;
 
@@ -193,6 +141,10 @@ revealBtn.addEventListener("click", () => {
 
   // Und hier könnte das Punktesystem ausgewertet und angezeigt werden:
   // scoreText.textContent = "Dein Score: " + score;
+});
+
+nextQuestionButton.addEventListener("click", ()=> {
+revealPhoto.setAttribute("src", "");
 });
 
 // Beim Laden der Seite Spiel starten
