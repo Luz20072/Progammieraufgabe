@@ -6,23 +6,27 @@ bei dem die IT-Azubis selbst die Charaktere sind.
 Die Website wird über GitHub Pages veröffentlicht. Ziel ist es, gemeinsam:
 - ein kleines Spiel zu bauen,
 - Git und GitHub praktisch zu nutzen,
+- Merge-Konflikte bewusst zu erzeugen und zu lösen,
 - und dabei die Azubis spielerisch vorzustellen.
 
 ---
 
-## Allgemeine Hinweise
+## Technische Basis
 
-- Wir arbeiten mit:
-  - `index.html` für die Seite,
-  - `style.css` für das Aussehen,
-  - `game.js` für die Spiel-Logik und die Daten.
-- Am Ende soll das Spiel über GitHub Pages spielbar sein.
-- Es gibt **zwei Gruppen**, die **an zwei Teilen der Aufgabe** arbeiten:
+Wir arbeiten mit:
+- `index.html` für die Seite,
+- `style.css` für das Aussehen,
+- `game.js` für die Spiel-Logik und die Daten.
 
-  - **Gruppe A:** Spielmechanik & Layout  
-  - **Gruppe B:** Inhalte & Spiel-Features
+Die Seite wird über GitHub Pages ausgeliefert (Branch `main`, Folder `/`).
 
-Jede Gruppe arbeitet auf einem eigenen Branch und erstellt einen Pull Request.
+Es gibt **zwei Gruppen**, die an **zwei Teilen** der Aufgabe arbeiten:
+
+- **Gruppe A:** Spielmechanik & Layout  
+- **Gruppe B:** Inhalte & Spiel-Features  
+
+Jede Gruppe arbeitet auf einem eigenen Branch und erstellt einen Pull Request.  
+Im Verlauf sollen sie **mindestens einen Merge-Konflikt bewusst erzeugen und gemeinsam lösen**.
 
 ---
 
@@ -37,73 +41,92 @@ dass das Spiel sinnvoll aussieht und bedienbar ist.
 
 1. **Branch anlegen**
 
-   - Erstellt einen neuen Branch z.B.:
+   - Erstellt einen neuen Branch, z.B.:
      - `feature/game-mechanics`
 
-2. **Datenstruktur anlegen**
+2. **Datenstruktur definieren**
 
-   - Definiert in `game.js` eine Datenstruktur für Personen, z.B. ein Array von Objekten:
+   - Legt in `game.js` die Struktur für die Personen fest, z.B.:
 
      ```js
      const persons = [
-       // Beispielstruktur – Inhalte werden von euch (Gruppe B) ausgefüllt:
+       // Beispielstruktur – Inhalte werden von Gruppe B ausgefüllt:
        // {
        //   name: "Name oder Spitzname",
        //   hints: [
        //     "Hinweis 1 ...",
        //     "Hinweis 2 ...",
        //     "Hinweis 3 ..."
-       //   ]
+       //   ],
+       //   // optionale Felder für Zusatzfeatures, z.B.:
+       //   // role: "Azubi",
+       //   // year: 2024
        // }
      ];
      ```
 
-   - Gruppe A legt nur die Struktur fest (z.B. Felder `name`, `hints`, optional `role`, `year`),
-     die Inhalte füllt später Gruppe B.
+   - Achtet darauf, dass `name` und `hints` sinnvoll definiert sind
+     und später leicht von Gruppe B befüllt werden können.
 
-3. **Grundlogik des Spiels schreiben**
+3. **Grundlogik des Spiels bauen**
 
-   Implementiert in `game.js` folgende Funktionen:
+   Ergänzt in `game.js` (oder passt an) folgende Logik:
 
    - `startGame()`:
      - wählt zufällig eine Person aus `persons` aus (z.B. mit `Math.random()`),
      - setzt den Hinweis-Index auf 0,
      - zeigt den ersten Hinweis im Element `#hint-text`,
-     - leert den Text im Element `#answer-text`.
+     - setzt `#answer-text` leer.
 
-   - Event Listener für den Button `#next-hint-btn`:
+   - Event Listener für `#next-hint-btn`:
      - zeigt den nächsten Hinweis der aktuellen Person,
-     - wenn keine weiteren Hinweise mehr vorhanden sind:
+     - wenn keine weiteren Hinweise vorhanden sind:
        - zeigt eine Nachricht wie „Keine weiteren Hinweise, vielleicht die Auflösung anzeigen?“ im `#hint-text`.
 
-   - Event Listener für den Button `#reveal-btn`:
+   - Event Listener für `#reveal-btn`:
      - zeigt die Auflösung (den Namen der Person) im Element `#answer-text`,
        z.B. „Wer bin ich? -> [Name]“.
 
-   - Ruft `startGame()` beim Laden der Seite einmal auf, damit das Spiel startet.
+   - Stellt sicher, dass beim Laden der Seite einmal `startGame()` aufgerufen wird.
 
 4. **Layout verbessern (HTML & CSS)**
 
    - Passt `index.html` so an, dass:
-     - Überschrift und Beschreibung zum Spiel klar sind,
-     - die Buttons sinnvoll platziert sind,
-     - der „Spielbereich“ (Hinweise + Auflösung) gut sichtbar ist.
+     - Überschrift und kurze Beschreibung zum Spiel erkennbar sind,
+     - der „Spielbereich“ (Hinweise, Buttons, Auflösung, Score) gut strukturiert ist.
 
    - Verbessert das Layout in `style.css`:
-     - erhöht Lesbarkeit (Abstände, Font-Size),
+     - Lesbarkeit (Abstände, Schriftgrößen),
      - ggf. Rahmen oder Hintergrund für den Spielbereich,
-     - optional: einfache Farbgestaltung.
+     - einfache Farbgestaltung für Buttons und Texte.
 
-5. **Commits & Pull Request**
+5. **Merge-Konflikt vorbereiten (gemeinsam mit Gruppe B)**
+
+   Damit wir Merge-Konflikte üben können, soll Gruppe A:
+
+   - Einen Abschnitt in `README.md` oder eine bestimmte Textstelle in `index.html`
+     **bewusst verändern**, von der sie wissen, dass Gruppe B dort *auch* Änderungen machen wird.  
+     Beispiel:
+     - Gruppe A ergänzt in `README.md` einen Satz unter „Gemeinsamer Abschluss“.
+     - Gruppe B passt denselben Satz anders an.
+
+   - Diese Änderung normal committen (nicht absprechen, was genau drinsteht,
+     nur absprechen, in **welchem Abschnitt** beide Gruppen etwas ändern).
+
+   Ziel: Beim späteren Merge der zwei Branches entsteht ein echter Merge-Konflikt,
+   den wir lösen können.
+
+6. **Commits & Pull Request**
 
    - Legt sinnvolle Commits an, z.B.:
 
-     - `feat: add basic wer-bin-ich game logic`
-     - `style: improve layout for game area`
+     - `feat: implement wer-bin-ich game mechanics`
+     - `style: improve layout of game area`
+     - `docs: update README with notes from group A`
 
    - Erstellt einen Pull Request von `feature/game-mechanics` nach `main`.
    - Beschreibt im PR kurz, was ihr umgesetzt habt.
-   - Verknüpft den PR mit diesem Teil der Aufgabe (z.B. über ein Issue).
+   - Verknüpft den PR mit einem passenden Issue (Teil 1).
 
 ---
 
@@ -111,33 +134,35 @@ dass das Spiel sinnvoll aussieht und bedienbar ist.
 
 ### Ziel
 
-Gruppe B sorgt dafür, dass das Spiel mit echten Inhalten der IT-Azubis gefüllt wird
-und ergänzt kleine Zusatz-Features, die das Spiel interessanter machen.
+Gruppe B füllt das Spiel mit echten Inhalten der IT-Azubis
+und ergänzt mindestens ein Zusatz-Feature, das das Spiel interessanter macht.
+Sie beteiligt sich ebenfalls aktiv an der Erzeugung eines Merge-Konflikts.
 
 ### Aufgaben von Gruppe B
 
 1. **Branch anlegen**
 
-   - Erstellt einen neuen Branch z.B.:
+   - Erstellt einen neuen Branch, z.B.:
      - `feature/game-content`
 
 2. **Personen und Hinweise sammeln**
 
-   - Sammelt für alle IT-Azubis (und ggf. Ausbilder:innen oder Rollen) folgende Daten:
+   - Sammelt für alle IT-Azubis (und ggf. Ausbilder:innen oder Rollen):
 
      - `name` oder Spitzname (z.B. „Max“, „Fachinformatiker-Azubi 2024“),
-     - mindestens **2–3 Hinweise** pro Person, z.B.:
-       - Berufsbezogenes (Ausbildungsjahr, Fachbereich),
-       - Interessen (technisch oder privat, aber unkritisch),
-       - Fun-Facts (humorvoll, aber respektvoll).
+     - mindestens 2–3 Hinweise pro Person, z.B.:
+       - Ausbildungsjahr / Fachrichtung,
+       - technische Interessen (z.B. „mag Frontend“),
+       - harmlose Fun-Facts (z.B. „kommt jeden Tag mit dem Rad“).
 
-   - Achtet darauf:
+   - Wichtige Regeln:
      - keine sensiblen persönlichen Daten,
-     - keine unangemessenen oder peinlichen Hinweise.
+     - keine unangemessenen oder peinlichen Hinweise,
+     - alles respektvoll formulieren.
 
 3. **Datenstruktur in `game.js` befüllen**
 
-   - Tragt alle gesammelten Personen in das Array `persons` ein, z.B.:
+   - Tragt alle gesammelten Personen in das `persons`-Array ein, z.B.:
 
      ```js
      const persons = [
@@ -145,7 +170,7 @@ und ergänzt kleine Zusatz-Features, die das Spiel interessanter machen.
          name: "Azubi 1",
          hints: [
            "Ich bin im 2. Ausbildungsjahr.",
-           "Ich mag Frontend.",
+           "Ich mag Frontend-Entwicklung.",
            "Ich trinke morgens immer Mate."
          ]
        },
@@ -161,70 +186,115 @@ und ergänzt kleine Zusatz-Features, die das Spiel interessanter machen.
      ];
      ```
 
-   - Ziel: mindestens so viele Einträge, wie Azubis anwesend sind, plus optional Ausbilder:innen.
+   - Ziel: mindestens so viele Einträge wie Azubis teilnehmen,
+     optional ergänzt um Ausbilder:innen oder Rollen.
 
-4. **Zusatz-Feature einbauen (optional, aber empfohlen)**
+4. **Zusatz-Feature einbauen (mindestens eins)**
 
    Wählt mindestens **ein** Extra-Feature und baut es ein, z.B.:
 
    - **Punktesystem:**
-     - führt eine Variable `score` ein,
+     - führt eine Variable `score` in `game.js` ein,
      - Idee:
-       - je weniger Hinweise man braucht, bevor man auf „Auflösung“ drückt, desto mehr Punkte,
-       - zeigt den Punktestand im DOM, z.B. in einem Element `#score-text`.
+       - bei Start einer neuen Runde beginnt score z.B. bei einer festen Punktzahl,
+       - jede Nutzung des „Nächster Hinweis“-Buttons verringert score,
+       - zeigt den Punktestand im Element `#score-text`.
 
    - **Kategorie-Anzeige:**
-     - fügt pro Person Felder wie `role` (z.B. „Azubi“, „Ausbilder“) oder `year` (z.B. 2024) hinzu,
-     - zeigt bei der Auflösung zusätzlich „Rolle: Azubi / Jahrgang: 2024“.
+     - fügt pro Person optionale Felder wie `role` (z.B. „Azubi“, „Ausbilder“) oder `year` (z.B. 2024) hinzu,
+     - zeigt bei der Auflösung zusätzlich „Rolle: Azubi / Jahrgang: 2024.“
 
-   - **„Neue Runde“-Button:**
-     - zusätzlicher Button, der ein neues Rätsel startet, ohne die Seite neu zu laden,
-     - ruft z.B. `startGame()` erneut auf und setzt alles zurück.
+   - **„Neue Runde“-Button (optional, falls Zeit):**
+     - ergänzt einen Button in `index.html`, z.B. mit der ID `new-round-btn`,
+     - dieser ruft eine Funktion auf, die ein neues Rätsel startet (erneuter Aufruf von `startGame()`).
 
-   Ihr könnt frei entscheiden, welches Feature ihr umsetzt, solange es das Spiel sinnvoll erweitert
-und in der Zeit machbar bleibt.
+5. **Merge-Konflikt bewusst erzeugen (gemeinsam mit Gruppe A)**
 
-5. **Commits & Pull Request**
+   Um einen Merge-Konflikt zu üben, soll Gruppe B:
+
+   - In **derselben Datei und im selben Abschnitt**, den Gruppe A anfasst (z.B. `README.md` im Abschnitt „Gemeinsamer Abschluss“ oder ein bestimmter Textblock in `index.html`),
+     ebenfalls Änderungen vornehmen – aber mit **einem anderen Text**.
+
+     Beispiel:
+     - Gruppe A schreibt unter „Gemeinsamer Abschluss“ einen Satz,
+       wie „Wir besprechen anschließend, was wir gelernt haben.“
+     - Gruppe B schreibt im selben Abschnitt einen anderen Satz,
+       z.B. „Zum Schluss halten wir fest, welche Herausforderungen es gab.“
+
+   - Diese Änderung committen, ohne den Text mit Gruppe A abzugleichen.
+
+   Dadurch wird beim Merge der Branches **bewusst ein Merge-Konflikt erzeugt**, den ihr später gemeinsam löst.
+
+6. **Commits & Pull Request**
 
    - Legt sinnvolle Commits an, z.B.:
 
      - `feat: add azubi persons and hints`
-     - `feat: add score system for wer-bin-ich`
+     - `feat: add score feature to wer-bin-ich game`
+     - `docs: update README with notes from group B`
 
    - Erstellt einen Pull Request von `feature/game-content` nach `main`.
    - Beschreibt im PR:
-     - welche Rollen/Personen ihr hinzugefügt habt,
+     - welche Personen/Hinweise ihr hinzugefügt habt,
      - welche Zusatz-Features ihr eingebaut habt.
-   - Verknüpft den PR mit diesem Teil der Aufgabe (z.B. über ein Issue).
+   - Verknüpft den PR mit einem passenden Issue (Teil 2).
 
 ---
 
-## Gemeinsamer Abschluss
+## Gemeinsamer Abschluss: Review, Merge-Konflikte, GitHub Pages
 
 Wenn beide Gruppen ihre Pull Requests erstellt haben:
 
 1. **Code Review**
 
-   - Gruppe A schaut sich den PR von Gruppe B an:
-     - kontrolliert, ob die Datenstruktur korrekt ist,
-     - gibt Feedback zu den Hinweisen (verständlich, fair, anonym genug?).
+   - Gruppe A reviewt den PR von Gruppe B:
+     - prüft, ob die Datenstruktur korrekt ist,
+     - gibt Feedback zu den Hinweisen (verständlich, respektvoll).
 
-   - Gruppe B schaut sich den PR von Gruppe A an:
+   - Gruppe B reviewt den PR von Gruppe A:
      - testet die Spielmechanik (Buttons, Hinweise, Auflösung),
      - gibt Feedback zum Layout und zur Bedienbarkeit.
 
-2. **Merge & GitHub Pages**
+2. **Merge-Konflikt bewusst herbeiführen**
 
-   - Nach den Reviews werden beide PRs gemerged.
+   - Merged zunächst **einen** der beiden PRs (z.B. den von Gruppe A).
+   - Versucht danach, den zweiten PR zu mergen (z.B. den von Gruppe B).
+   - An der Stelle, an der beide Gruppen dieselbe Zeile in derselben Datei verändert haben,
+     sollte ein **Merge-Konflikt** entstehen (GitHub zeigt das im PR an).
+
+3. **Merge-Konflikt lösen**
+
+   - Öffnet die betroffene Datei (z.B. `README.md` oder `index.html`) entweder:
+     - lokal im Editor, oder
+     - über den GitHub-Webeditor.
+   - Sucht nach den Konflikt-Markern:
+
+     ```text
+     <<<<<<< HEAD
+     ... Änderung aus dem bereits gemergten Branch ...
+     =======
+     ... Änderung aus dem zweiten Branch ...
+     >>>>>>> feature/game-content
+     ```
+
+   - Entscheidet gemeinsam, **wie der finale Text aussehen soll**:
+     - entweder eine der Versionen übernehmen,
+     - oder beide sinnvoll zusammenführen.
+   - Entfernt die Konflikt-Markierungen (`<<<<<<<`, `=======`, `>>>>>>>`),
+     speichert die Datei und commitet die Konfliktlösung.
+
+4. **Merge abschließen & GitHub Pages prüfen**
+
+   - Nachdem der Konflikt gelöst und committed wurde, kann der PR vollständig gemerged werden.
    - GitHub Pages baut automatisch neu.
    - Die fertige Wer-bin-ich-Seite ist dann unter der GitHub-Pages-URL spielbar.
 
-3. **Gemeinsam spielen**
+5. **Gemeinsam spielen & reflektieren**
 
    - Öffnet die live Seite.
    - Klickt euch durch die Hinweise und versucht zu erraten, wer gemeint ist.
-   - Diskutiert kurz:
-     - Was hat gut funktioniert?
-     - Was war an Git/GitHub neu oder hilfreich?
+   - Sprecht kurz darüber:
+     - wie die Arbeit mit Branches, PRs und Merge-Konflikten lief,
+     - was ihr über Git & GitHub gelernt habt.
 
 ---

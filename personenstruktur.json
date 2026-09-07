@@ -1,0 +1,68 @@
+persons = [
+    {
+    name: "Luka",
+    hints: [
+       "Brandenburg",
+       "Hinweis 2 ...",
+       "Hinweis 3 ..."
+     ],
+     // optionale Felder für Zusatzfeatures:
+     // role: "Azubi",
+     // year: 2024
+   }
+   {
+    name: "Beispiel-Azubi",
+    hints: [
+       "Hinweis 1 ...",
+       "Hinweis 2 ...",
+       "Hinweis 3 ..."
+     ],
+     // optionale Felder für Zusatzfeatures:
+     // role: "Azubi",
+     // year: 2024
+   }
+{
+    name: "Beispiel-Azubi",
+    hints: [
+       "Hinweis 1 ...",
+       "Hinweis 2 ...",
+       "Hinweis 3 ..."
+     ],
+     // optionale Felder für Zusatzfeatures:
+     // role: "Azubi",
+     // year: 2024
+   }
+   {
+    name: "Beispiel-Azubi",
+    hints: [
+       "Hinweis 1 ...",
+       "Hinweis 2 ...",
+       "Hinweis 3 ..."
+     ],
+     // optionale Felder für Zusatzfeatures:
+     // role: "Azubi",
+     // year: 2024
+   }
+   {
+    name: "Beispiel-Azubi",
+    hints: [
+       "Hinweis 1 ...",
+       "Hinweis 2 ...",
+       "Hinweis 3 ..."
+     ],
+     // optionale Felder für Zusatzfeatures:
+     // role: "Azubi",
+     // year: 2024
+   }
+   {
+    name: "Beispiel-Azubi",
+    hints: [
+       "Hinweis 1 ...",
+       "Hinweis 2 ...",
+       "Hinweis 3 ..."
+     ],
+     // optionale Felder für Zusatzfeatures:
+     // role: "Azubi",
+     // year: 2024
+   }
+   ]; 

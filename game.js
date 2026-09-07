@@ -12,19 +12,74 @@ const scoreText = document.getElementById("score-text");
 // Gruppe A definiert die Struktur (Felder), Gruppe B füllt die Inhalte.
 // Beispielstruktur (INHALTE KOMMEN VON GRUPPE B):
 
-// const persons = [
-//   {
-//     name: "Beispiel-Azubi",
-//     hints: [
-//       "Hinweis 1 ...",
-//       "Hinweis 2 ...",
-//       "Hinweis 3 ..."
-//     ],
-//     // optionale Felder für Zusatzfeatures:
-//     // role: "Azubi",
-//     // year: 2024
-//   }
-// ];
+const persons = [
+  {
+    name: "Beispiel-Azubi",
+    hints: [
+      "Hinweis 1 ...",
+      "Hinweis 2 ...",
+      "Hinweis 3 ..."
+    ],
+    // optionale Felder für Zusatzfeatures:
+    // role: "Azubi",
+    // year: 2024
+  },
+    {
+    name: "Beispiel-Azubi",
+    hints: [
+      "Hinweis 1 ...",
+      "Hinweis 2 ...",
+      "Hinweis 3 ..."
+    ],
+    // optionale Felder für Zusatzfeatures:
+    // role: "Azubi",
+    // year: 2024
+  },
+    {
+    name: "Beispiel-Azubi",
+    hints: [
+      "Hinweis 1 ...",
+      "Hinweis 2 ...",
+      "Hinweis 3 ..."
+    ],
+    // optionale Felder für Zusatzfeatures:
+    // role: "Azubi",
+    // year: 2024
+  },
+    {
+    name: "Beispiel-Azubi",
+    hints: [
+      "Hinweis 1 ...",
+      "Hinweis 2 ...",
+      "Hinweis 3 ..."
+    ],
+    // optionale Felder für Zusatzfeatures:
+    // role: "Azubi",
+    // year: 2024
+  },
+    {
+    name: "Beispiel-Azubi",
+    hints: [
+      "Hinweis 1 ...",
+      "Hinweis 2 ...",
+      "Hinweis 3 ..."
+    ],
+    // optionale Felder für Zusatzfeatures:
+    // role: "Azubi",
+    // year: 2024
+  },
+    {
+    name: "Beispiel-Azubi",
+    hints: [
+      "Hinweis 1 ...",
+      "Hinweis 2 ...",
+      "Hinweis 3 ..."
+    ],
+    // optionale Felder für Zusatzfeatures:
+    // role: "Azubi",
+    // year: 2024
+  }
+];
 
 const persons = []; // wird von Gruppe B mit echten Personen/Hinweisen gefüllt
 
