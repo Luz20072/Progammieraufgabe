@@ -26,7 +26,56 @@ const scoreText = document.getElementById("score-text");
 //   }
 // ];
 
-const persons = []; // wird von Gruppe B mit echten Personen/Hinweisen gefüllt
+const persons = [
+  {
+    name: "Kevin",
+    hints: [
+      "Ich bin Dortmund Fan",
+      "Ich bin 27 Jahre alt (unc)",
+      "Ich spiele gerne CS2"
+    ]
+  },
+    {
+    name: "Almin",
+    hints: [
+      "Ich liebe Berserk",
+      "Ich bin 25 Jahre alt",
+      "Ich spiele gerne Valo"
+    ]
+  },
+    {
+    name: "Luka",
+    hints: [
+      "Ich mag ganz dolle Anime ",
+      "Ich bin 17 Jahre alt",
+      "Ich spiele gerne Valo"
+    ]
+  },
+    {
+    name: "Max",
+    hints: [
+      "Komme nicht aus Berlin",
+      "Ich bin 26 Jahre alt",
+      "Ich spiele gerne Stelaris"
+    ]
+  },
+    {
+    name: "Alex",
+    hints: [
+      "Ich bin stolzer Raucher",
+      "Ich bin 23 Jahre alt",
+      "Ich spiele gerne League of Legends"
+    ]
+  },
+    {
+    name: "Aaron",
+    hints: [
+      "Ich bin Wilhelm Tell Fan",
+      "Ich bin 25 Jahre alt",
+      "Ich spiele gerne Minecraft und Rainbow Six Siege"
+    ]
+  }
+]; // wird von Gruppe B mit echten Personen/Hinweisen gefüllt
 
 // Zustandsvariablen
 let currentPersonIndex = 0;
